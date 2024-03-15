@@ -1,11 +1,17 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes as BrowserRoutes,
+} from "react-router-dom";
 import Home from "./Home";
 import About from "./About";
 import Contact from "./Contact";
 import NotFound from "./NotFound";
+import Terry from "./Terry";
+import Students from "./Students";
 
-function App() {
+function Routes() {
   return (
     <Router>
       <div>
@@ -23,16 +29,18 @@ function App() {
           </ul>
         </nav>
 
-        <Routes>
+        <BrowserRoutes>
           <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/terry" element={<Terry />} />
           {/* Modify the About route to include a parameter */}
           <Route path="/about/:name" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/student/:id/:name" element={<Students />} />
           <Route path="*" element={<NotFound />} />
-        </Routes>
+        </BrowserRoutes>
       </div>
     </Router>
   );
 }
 
-export default App;
+export default Routes;
