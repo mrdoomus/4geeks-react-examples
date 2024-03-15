@@ -1,13 +1,18 @@
-// components/Contact.js
 import React from "react";
-import { navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
+  const navigate = useNavigate();
+
+  const handleBackToApp = () => {
+    navigate("/");
+  };
+
   return (
     <div>
       <h2>Contact</h2>
       <p>Contact us here.</p>
-      <button onClick={() => navigate("/")}>Back to App</button>
+      <button onClick={handleBackToApp}>Back to App</button>
     </div>
   );
 };

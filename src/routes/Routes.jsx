@@ -1,10 +1,9 @@
-// App.js
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./components/Home";
-import About from "./components/About";
-import Contact from "./components/Contact";
-import NotFound from "./components/NotFound";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./Home";
+import About from "./About";
+import Contact from "./Contact";
+import NotFound from "./NotFound";
 
 function App() {
   return (
@@ -24,12 +23,13 @@ function App() {
           </ul>
         </nav>
 
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/about" component={About} />
-          <Route path="/contact" component={Contact} />
-          <Route component={NotFound} />
-        </Switch>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          {/* Modify the About route to include a parameter */}
+          <Route path="/about/:name" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </div>
     </Router>
   );
