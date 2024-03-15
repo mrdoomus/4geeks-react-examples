@@ -1,10 +1,13 @@
 import "./style.css";
-import Pokemon from "./Pokemon";
+import { PostProvider } from "./use-context/PostContext";
+import PostList from "./use-context/PostList";
 
 function App() {
   return (
     <div>
-      <Pokemon />
+      <PostProvider>
+        <PostList />
+      </PostProvider>
     </div>
   );
 }
