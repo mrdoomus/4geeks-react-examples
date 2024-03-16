@@ -1,22 +1,7 @@
-import React, {
-  createContext,
-  useState,
-  useCallback,
-  useContext,
-  useMemo,
-} from "react";
+import React, { createContext, useState, useCallback, useMemo } from "react";
 
 //1. Create a new context for posts
 export const PostContext = createContext({});
-
-//2. Custom hook to conveniently access the PostContext
-export const usePostContext = () => {
-  const context = useContext(PostContext);
-  if (!context) {
-    throw new Error("usePostContext must be used within a PostProvider");
-  }
-  return context;
-};
 
 //3. PostProvider component to provide posts data and functions to manipulate posts
 export const PostProvider = ({ children }) => {

@@ -1,10 +1,13 @@
 import "./style.css";
-import Routes from "./routes/Routes";
+import { PostProvider } from "./use-context/PostContext";
+import PostList from "./use-context/PostList";
 
 function App() {
   return (
     <div>
-      <Routes />
+      <PostProvider>
+        <PostList />
+      </PostProvider>
     </div>
   );
 }
