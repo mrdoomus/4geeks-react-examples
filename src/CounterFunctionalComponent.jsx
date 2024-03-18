@@ -1,21 +1,30 @@
-import React, { useState } from "react";
-import { ControlledCheckbox } from "./ControlledCheckbox";
-import { UncontrolledCheckbox } from "./UncontrolledComponent";
-import { useEffect } from "react";
-import fetchTodoList from "./services";
+import { useState, useEffect } from "react";
+
+// useState - create and modify an internal state, this means, data inside of the component
+// useEffect - make some variables be watched, when they are modified, some logic gets triggered
 
 const ParentComponent = () => {
-  // HAS LOGIC!
-  const [isChecked, setIsChecked] = useState(false);
+  // const [value, setValue] = useState(initialSate)
+  const [count, setCount] = useState(0);
 
-  const handleCheckboxChange = (event) => {
-    setIsChecked(event.target.checked);
+  const incrementCount = () => {
+    setCount(count + 1);
   };
+
+  // useEffect(logic that wants to run when the watched variables change, [watched variables])
+
+  const sayHi = () => {
+    console.log("Hi");
+  };
+
+  useEffect(sayHi, []); // Everytime we increment count, 'Hi' is going to be logged
 
   return (
     <div>
-      <ControlledCheckbox checked={isChecked} onChange={handleCheckboxChange} />
-      <UncontrolledCheckbox />
+      Count: {count}
+      <div>
+        <button onClick={incrementCount}>Click me to increment Count</button>
+      </div>
     </div>
   );
 };

@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { PostContext } from "./PostContext";
+import { CardButton } from "../CardButton";
 
 function PostList() {
   // 1. Use the useContext hook to access the PostContext
   const { posts, fetchPosts, addPost } = useContext(PostContext);
+  const [count, setCount] = useState(0);
 
   // 2. Define state for newPost and setNewPost function using the useState hook
   const [newPost, setNewPost] = useState({ title: "", body: "" });
@@ -55,6 +57,14 @@ function PostList() {
           </li>
         ))}
       </ul>
+      <CardButton buttonTextColor={"red"} buttonText="Button Text" />
+      <button
+        onClick={() => {
+          setCount((prev) => ++prev);
+        }}
+      >
+        Click me to increment {count}
+      </button>
     </div>
   );
 }

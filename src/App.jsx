@@ -1,13 +1,15 @@
 import "./style.css";
-import { PostProvider } from "./use-context/PostContext";
-import PostList from "./use-context/PostList";
+import CountA from "./use-context-beginner-friendly/CountA";
+import CountB from "./use-context-beginner-friendly/CountB";
+import { CountProvider } from "./use-context-beginner-friendly/CountContext";
 
 function App() {
   return (
     <div>
-      <PostProvider>
-        <PostList />
-      </PostProvider>
+      <CountProvider>
+        <CountA />
+        <CountB />
+      </CountProvider>
     </div>
   );
 }
