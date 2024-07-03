@@ -28,16 +28,3 @@ class ClockComponent extends React.Component {
 }
 
 export default ClockComponent;
-
-// const house = {
-//   color: "Red",
-//   city: "Miami",
-//   printHouseName: function () {
-//     console.log("Im a house");
-//   },
-
-//   constructor: function () {},
-//   render: function () {},
-// };
-
-// house.printHouseName();
